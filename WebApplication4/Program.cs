@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 
-namespace WebApplication4
+namespace EmployeeManagement
 {
     public class Program
     {

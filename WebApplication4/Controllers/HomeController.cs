@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+using EmployeeManagement.Models;
+using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebApplication4.Models;
-using WebApplication4.ViewModels;
 
-namespace WebApplication4.Controllers
+namespace EmployeeManagement.Controllers
 {
     //[Route("Home")] //[Route("[controller]")]  czyli nazwa klasy
     //[Route("[controller]/[action]")]
@@ -43,7 +39,7 @@ namespace WebApplication4.Controllers
         //[Route("{id?}")]
         // [Route("Details/{id?}")] //[Route("[action]/{id?}")] czyli nazwa Details
         public ViewResult Details(int? id)//?moze być null
-       //Form<-Route<-Query (priority skad value)
+                                          //Form<-Route<-Query (priority skad value)
         {
             //throw new Exception("Some error");
 
@@ -66,7 +62,7 @@ namespace WebApplication4.Controllers
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
                 //Employee = _employeeRepository.GetEmployee(id ?? 1), //if not null use value if null use 1
-                Employee= employee,
+                Employee = employee,
                 PageTitle = "Employee Details"
             };
             return View(homeDetailsViewModel);
@@ -166,7 +162,7 @@ namespace WebApplication4.Controllers
                     // deleted. So check if there is an existing photo and delete
                     if (model.ExistingPhotoPath != null)
                     {
-                        string filePath = Path.Combine(hostingEnvironment.WebRootPath,"img", model.ExistingPhotoPath);
+                        string filePath = Path.Combine(hostingEnvironment.WebRootPath, "img", model.ExistingPhotoPath);
                         System.IO.File.Delete(filePath);
                     }
                     // Save the new photo in wwwroot/images folder and update

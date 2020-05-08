@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Http;
-using WebApplication4.Models;
 
-namespace WebApplication4.ViewModels
+namespace EmployeeManagement.ViewModels
 {
     public class EmployeeCreateViewModel
     {

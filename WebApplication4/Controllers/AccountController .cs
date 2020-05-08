@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using EmployeeManagement.Models;
+using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication4.Models;
-using WebApplication4.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WebApplication4.Controllers
+namespace EmployeeManagement.Controllers
 {
     public class AccountController : Controller
     {
@@ -61,7 +58,7 @@ namespace WebApplication4.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    City=model.City
+                    City = model.City
                 };
 
                 // Store user data in AspNetUsers database table
@@ -72,7 +69,7 @@ namespace WebApplication4.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: false);//not cookie
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("index", "Home");
                 }
 
                 // If there are any errors, add them to the ModelState object
@@ -90,7 +87,7 @@ namespace WebApplication4.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
+            return RedirectToAction("index", "Home");
         }
 
         [HttpGet]
@@ -114,11 +111,11 @@ namespace WebApplication4.Controllers
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))//czy nie null i czy lokalny url
                     {
                         return Redirect(returnUrl);
-                      //  return LocalRedirect(returnUrl); //only local, not malicious, but exceptionpron
+                        //  return LocalRedirect(returnUrl); //only local, not malicious, but exceptionpron
                     }
                     else
                     {
-                        return RedirectToAction("index", "home");
+                        return RedirectToAction("index", "Home");
                     }
                 }
 
@@ -126,6 +123,13 @@ namespace WebApplication4.Controllers
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

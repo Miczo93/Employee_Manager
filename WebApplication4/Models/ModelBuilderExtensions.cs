@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication4.Models
+namespace EmployeeManagement.Models
 {
     public static class ModelBuilderExtensions
     {

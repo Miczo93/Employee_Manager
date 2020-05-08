@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using EmployeeManagement.Utilities;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication4.Utilities;
 
-namespace WebApplication4.ViewModels
+namespace EmployeeManagement.ViewModels
 {
     public class RegisterViewModel
     {

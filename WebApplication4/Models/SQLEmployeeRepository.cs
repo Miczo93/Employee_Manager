@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 
-namespace WebApplication4.Models
+namespace EmployeeManagement.Models
 {
     public class SQLEmployeeRepository : IEmployeeRepository
     {
         private readonly AppDbContext context;
         private readonly ILogger<SQLEmployeeRepository> logger;
 
-        public SQLEmployeeRepository(AppDbContext context, ILogger<SQLEmployeeRepository> logger )
+        public SQLEmployeeRepository(AppDbContext context, ILogger<SQLEmployeeRepository> logger)
         {
             this.context = context;
             this.logger = logger;

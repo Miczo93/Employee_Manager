@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication4.Controllers
+namespace EmployeeManagement.Controllers
 {
     public class DepartmentsController : Controller
     {
